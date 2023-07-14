@@ -31,7 +31,7 @@ export default async function Projects() {
 								<Image
 									src="/../public/imgs/tic-tac-toe.png"
 									// fill
-									alt={data.image.alt}
+									alt=""
 									width={200}
 									height={279}
 									quality={100}

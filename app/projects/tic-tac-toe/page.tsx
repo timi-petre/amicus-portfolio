@@ -7,11 +7,11 @@ type TSquare = {
 	onSquareClick: () => void;
 };
 
-type TBoard = {
-	xIsNext: boolean;
-	squares: string[];
-	onPlay: () => any;
-};
+// type TBoard = {
+// 	xIsNext: boolean;
+// 	squares: string[];
+// 	onPlay: () => any;
+// };
 
 function Square({ value, onSquareClick }: TSquare) {
 	return (
@@ -21,7 +21,7 @@ function Square({ value, onSquareClick }: TSquare) {
 	);
 }
 
-export function Board({ xIsNext, squares, onPlay }: TBoard) {
+export function Board({ xIsNext, squares, onPlay }) {
 	function handleClick(i: number) {
 		if (squares[i] || calculateWinner(squares)) return;
 		const nextSquares = squares.slice();
