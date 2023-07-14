@@ -1,0 +1,13 @@
+[
+	{
+		"id": 1,
+		"projectName": "Tic-Tac-Toe",
+		"image": {
+			"src": "../public/imgs/tic-tac-toe.png",
+			"alt": "Tic-Tac-Toe",
+			"width": "200",
+			"height": "276",
+			"quality": "100"
+		}
+	}
+]
