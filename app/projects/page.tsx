@@ -29,9 +29,9 @@ export default async function Projects() {
 						<div className="border rounded-md border-gray-500 text-center px-4 py-2 m-2">
 							<Link href="/projects/tic-tac-toe">
 								<Image
-									src="/../public/tic-tac-toe.png"
+									src="https://bit.ly/46T8649"
 									// fill
-									alt=""
+									alt="Tic Tac Toe"
 									width={200}
 									height={279}
 									quality={100}
