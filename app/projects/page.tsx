@@ -29,7 +29,7 @@ export default async function Projects() {
 						<div className="border rounded-md border-gray-500 text-center px-4 py-2 m-2">
 							<Link href="/projects/tic-tac-toe">
 								<Image
-									src="/../public/imgs/tic-tac-toe.png"
+									src="/../public/tic-tac-toe.png"
 									// fill
 									alt=""
 									width={200}
