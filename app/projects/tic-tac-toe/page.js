@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import style from './styles/components/Game.module.css';
 
-type TSquare = {
-	value: string;
-	onSquareClick: () => void;
-};
+// type TSquare = {
+// 	value: string,
+// 	onSquareClick: () => void,
+// };
 
 // type TBoard = {
 // 	xIsNext: boolean;
@@ -13,7 +13,7 @@ type TSquare = {
 // 	onPlay: () => any;
 // };
 
-function Square({ value, onSquareClick }: TSquare) {
+function Square({ value, onSquareClick }) {
 	return (
 		<button className={style.square} onClick={onSquareClick}>
 			{value}
@@ -22,7 +22,7 @@ function Square({ value, onSquareClick }: TSquare) {
 }
 
 export function Board({ xIsNext, squares, onPlay }) {
-	function handleClick(i: number) {
+	function handleClick(i) {
 		if (squares[i] || calculateWinner(squares)) return;
 		const nextSquares = squares.slice();
 		if (xIsNext) {
@@ -72,13 +72,13 @@ export default function Game() {
 	const xIsNext = currentMove % 2 === 0;
 	const currentSquares = history[currentMove];
 
-	function handlePlay(nextSquares: any) {
+	function handlePlay(nextSquares) {
 		const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
 		setHistory(nextHistory);
 		setCurrentMove(nextHistory.length - 1);
 	}
 
-	function jumpTo(nextMove: number) {
+	function jumpTo(nextMove) {
 		setCurrentMove(nextMove);
 	}
 	const moves = history.map((squares, move) => {
@@ -117,7 +117,7 @@ export default function Game() {
 	);
 }
 
-function calculateWinner(squares: string[]) {
+function calculateWinner(squares) {
 	const lines = [
 		[0, 1, 2],
 		[3, 4, 5],
