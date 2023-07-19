@@ -1,0 +1,21 @@
+.blob {
+	background: url(/././blob.svg) no-repeat;
+
+	width: 800px;
+	height: 800px;
+	background-size: cover;
+	position: relative;
+	background-position: center center;
+}
+
+.blob::before {
+	content: '';
+	background: url(/././blobw.svg) no-repeat;
+	width: 100vw;
+	height: 86vh;
+	position: absolute;
+	top: -5px;
+	left: -50px;
+	right: 0;
+	bottom: 0;
+}

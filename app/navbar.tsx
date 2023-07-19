@@ -3,7 +3,9 @@ export default function Navbar() {
 	return (
 		<>
 			<nav className="sm:flex sm:justify-between flex-wrap mx-5 my-5 space-x-4 hidden w-full">
-				<h1 className="text-xl">Timotei Petre</h1>
+				<Link href="/">
+					<h1 className="text-xl">Timotei Petre</h1>
+				</Link>
 				<div>
 					{[
 						['Home', '/'],

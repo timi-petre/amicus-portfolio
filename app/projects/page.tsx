@@ -34,7 +34,7 @@ export default async function Projects() {
 									width={200}
 									height={279}
 									quality={100}
-									loading="lazy"
+									priority={true}
 								/>
 							</Link>
 						</div>
