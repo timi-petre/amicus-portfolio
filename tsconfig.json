@@ -29,7 +29,7 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"app/pages/about/about.tsx",
-		"app/projects/tic-tac-toe/page.js"
+		"app/projects/tic-tac-toe/page.tsxx"
 	],
 	"exclude": ["node_modules"]
 }

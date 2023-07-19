@@ -21,7 +21,7 @@ function Square({ value, onSquareClick }: TSquare) {
 	);
 }
 
-export function Board({ xIsNext, squares, onPlay }) {
+function Board({ xIsNext, squares, onPlay }) {
 	function handleClick(i: number) {
 		if (squares[i] || calculateWinner(squares)) return;
 		const nextSquares = squares.slice();
