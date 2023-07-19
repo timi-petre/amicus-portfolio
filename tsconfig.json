@@ -28,7 +28,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"app/pages/about/about.tsx"
+		"app/pages/about/about.tsx",
+		"app/projects/tic-tac-toe/page.js"
 	],
 	"exclude": ["node_modules"]
 }
