@@ -19,6 +19,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					{children}
 					{/* <Footer /> */}
 				</div>
+				<script
+					src="https://kit.fontawesome.com/42c1633124.js"
+					crossOrigin="anonymous"
+					defer
+				></script>
 			</body>
 		</html>
 	);

@@ -1,21 +1,28 @@
 .blob {
-	background: url(/././blob.svg) no-repeat;
-
-	width: 800px;
+	background: url(/././blobw.svg) no-repeat;
+	width: 100%;
+	max-width: 800px;
 	height: 800px;
 	background-size: cover;
-	position: relative;
-	background-position: center center;
+	/* background-position: center center; */
 }
 
-.blob::before {
-	content: '';
-	background: url(/././blobw.svg) no-repeat;
-	width: 100vw;
-	height: 86vh;
-	position: absolute;
-	top: -5px;
-	left: -50px;
-	right: 0;
-	bottom: 0;
+.test {
+	margin: 0 auto;
 }
+
+.circle_parent {
+	position: relative;
+	font-size: 40px;
+	cursor: pointer;
+}
+
+.arrow_child {
+	position: absolute;
+	cursor: pointer;
+	font-size: 20px;
+	top: 0.5em;
+	left: 0.5em;
+}
+
+/* Mobile */
