@@ -25,4 +25,8 @@
 	left: 0.5em;
 }
 
+.will_change_transform {
+	will-change: transform;
+}
+
 /* Mobile */
