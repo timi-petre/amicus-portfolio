@@ -1,18 +1,20 @@
-import style from './styles/components/Home.module.css';
+import style from './styles/components/Home.module.css'
 
 export default function Home() {
-	let shortDescription = `I Am Passionate `;
+	let shortDescription = `I Am Passionate `
 	let longDescription =
-		'The namics of how users interact with interactive elements within a user interface flow chart based on container proportion.';
-	let intro = 'Hello there...';
-	let fullName = 'Timotei Petre';
+		'The namics of how users interact with interactive elements within a user interface flow chart based on container proportion.'
+	let intro = 'Hello there...'
+	let fullName = 'Timotei Petre'
 
 	return (
 		<>
 			<div className="flex justify-around">
 				<div className="flex flex-col justify-center gap-3">
 					<p className="text-xl font-semibold text-gray-900 dark:text-white">{intro}</p>
-					<h1 className="text-6xl font-semibold text-gray-900 dark:text-white">{fullName}</h1>
+					<h1 className="text-6xl font-semibold text-gray-900 dark:text-white">
+						{fullName}
+					</h1>
 					<p className="text-xl font-semibold text-gray-900 dark:text-white">
 						{shortDescription}
 						<br className="block md:hidden" />
@@ -49,5 +51,5 @@ export default function Home() {
 				</i>
 			</div>
 		</>
-	);
+	)
 }

@@ -1,21 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import * as photos from './proiecte.json';
-
-async function getData() {
-	// const res = await fetch('./proiecte.json');
-	let datas = JSON.stringify(photos);
-
-	// if (!res.ok) {
-	// 	throw new Error('Failed to fetch data');
-	// }
-
-	return datas;
-}
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 export default async function Projects() {
-	const data = await getData();
 	return (
 		<>
 			<div className="flex flex-col justify-center text-center">
@@ -26,7 +13,7 @@ export default async function Projects() {
 				<hr />
 				<div className="projects-wrapper my-5">
 					<div className="flex flex-row my-5 justify-center">
-						<div className="border rounded-md border-gray-500 text-center px-4 py-2 m-2">
+						<div className="border rounded-md border-gray-500 text-center px-4 py-10 m-2 cursor-pointer">
 							<Link href="/projects/tic-tac-toe">
 								<Image
 									src="/./images/tic-tac-toe.png"
@@ -34,7 +21,21 @@ export default async function Projects() {
 									width={200}
 									height={279}
 									quality={100}
-									priority={true}
+									title="Tic Tac Toe"
+									priority
+								/>
+							</Link>
+						</div>
+						<div className="border rounded-md border-gray-500 text-center px-4 py-2 m-2">
+							<Link href="/projects/calculator">
+								<Image
+									src="/./images/calculator.png"
+									alt="Calculator"
+									width={200}
+									height={279}
+									quality={100}
+									title="Calculator"
+									priority
 								/>
 							</Link>
 						</div>
@@ -45,5 +46,5 @@ export default async function Projects() {
 				</div>
 			</div>
 		</>
-	);
+	)
 }
