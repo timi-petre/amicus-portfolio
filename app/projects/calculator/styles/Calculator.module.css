@@ -20,15 +20,16 @@
 	border: none;
 	box-sizing: border-box;
 }
-/* .operator {
-	color: #219ebc;
+.op {
+	color: #219ebc !important;
 }
-#ac {
-	color: #bf4d5d;
-} */
-/* .equal {
-	width: calc(50% - 10px);
-} */
+.ac {
+	color: #bf4d5d !important;
+}
+
+.equal {
+	width: calc(50% - 10px) !important;
+}
 
 .button {
 	width: calc(25% - 10px);
