@@ -6,14 +6,36 @@ import styles from './styles/Calculator.module.css'
 function ButtonSquare({ value, onClick }: { value: any; onClick: (value: any) => void }) {
 	function handleClick(e: any) {
 		e.preventDefault()
-		console.log('clicked ' + value)
 		onClick(value)
 	}
 
+	function isOperator(value: any): boolean {
+		switch (value) {
+			case 'DEL':
+			case '=':
+			case '.':
+			case '/':
+			case '*':
+			case '+':
+			case '-':
+				return true
+			default:
+				return false
+		}
+	}
+
 	return (
-		<button className={`${styles.button}`} onClick={handleClick} value={value}>
-			{value}
-		</button>
+		<>
+			<button
+				className={`${styles.button} ${isOperator(value) && styles.op} ${
+					value === '=' && styles.equal
+				} ${value === 'AC' && styles.ac}`}
+				onClick={handleClick}
+				value={value}
+			>
+				{value}
+			</button>
+		</>
 	)
 }
 
@@ -81,36 +103,3 @@ export default function Board() {
 		</>
 	)
 }
-
-// function handleClear() {
-// 	setVal('0')
-// }
-
-// function handleDel() {
-// 	if (val.length > 1) {
-// 		setVal(val.slice(0, -1))
-// 	} else {
-// 		setVal('0')
-// 	}
-// }
-
-// function handleEqual() {
-// 	let result = eval(val)
-// 	setVal(result.toString())
-// }
-
-// function handleDot() {
-// 	if (val.indexOf('.') === -1) {
-// 		setVal(val + '.')
-// 	}
-// }
-
-// function handleAC() {
-// 	setVal('0')
-// }
-
-// function handleNumber(e: any) {
-// 	if (val === '0') {
-// 		setVal(e.target.value)
-// 	}
-// }
