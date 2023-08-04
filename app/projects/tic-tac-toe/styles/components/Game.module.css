@@ -5,11 +5,11 @@
 	font-size: 34px;
 	font-weight: bold;
 	line-height: 34px;
-	height: 104px;
 	margin-right: -1px;
 	margin-top: -1px;
 	padding: 0;
 	text-align: center;
+	height: 104px;
 	width: 104px;
 	color: black;
 }
@@ -30,4 +30,24 @@
 
 .game_info {
 	margin-left: 20px;
+}
+
+.container {
+	max-width: 360px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+@media (max-width: 480px) {
+	.square {
+		height: 55px;
+		width: 55px;
+	}
+}
+
+@media (max-width: 768px) {
+	.square {
+		height: 55px;
+		width: 55px;
+	}
 }

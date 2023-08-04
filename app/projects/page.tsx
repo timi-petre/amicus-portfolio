@@ -1,10 +1,14 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import NextNProgress from 'nextjs-progressbar'
 import React from 'react'
 
-export default async function Projects() {
+export default function Projects() {
 	return (
 		<>
+			{/* TODO */}
+			<NextNProgress color="#29D" startPosition={0.3} stopDelayMs={200} height={3} />
 			<div className="flex flex-col justify-center text-center">
 				<h1 className="flex text-7xl justify-center my-3">Projects</h1>
 				<p className="my-2 mb-3">
