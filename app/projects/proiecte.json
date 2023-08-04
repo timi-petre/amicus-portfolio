@@ -3,11 +3,24 @@
 		"id": 1,
 		"projectName": "Tic-Tac-Toe",
 		"image": {
-			"src": "../public/imgs/tic-tac-toe.png",
+			"src": "../public/images/tic-tac-toe.png",
 			"alt": "Tic-Tac-Toe",
 			"width": "200",
 			"height": "276",
-			"quality": "100"
+			"quality": "100",
+			"title": "Tic-Tac-Toe"
+		}
+	},
+	{
+		"id": 2,
+		"projectName": "Calculator",
+		"image": {
+			"src": "../public/images/calculator.png",
+			"alt": "Calculator",
+			"width": "200",
+			"height": "276",
+			"quality": "100",
+			"title": "Calculator"
 		}
 	}
 ]

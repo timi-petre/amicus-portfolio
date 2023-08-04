@@ -1,14 +1,11 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import NextNProgress from 'nextjs-progressbar'
 import React from 'react'
 
 export default function Projects() {
 	return (
 		<>
-			{/* TODO */}
-			<NextNProgress color="#29D" startPosition={0.3} stopDelayMs={200} height={3} />
 			<div className="flex flex-col justify-center text-center">
 				<h1 className="flex text-7xl justify-center my-3">Projects</h1>
 				<p className="my-2 mb-3">
@@ -39,6 +36,19 @@ export default function Projects() {
 									height={279}
 									quality={100}
 									title="Calculator"
+									priority
+								/>
+							</Link>
+						</div>
+						<div className="border rounded-md border-gray-500 text-center px-4 py-2 m-2">
+							<Link href="https://catts.netlify.app/">
+								<Image
+									src="/./images/catts.jpeg"
+									alt="Catts"
+									width={160}
+									height={279}
+									quality={100}
+									title="Catts"
 									priority
 								/>
 							</Link>
