@@ -13,11 +13,11 @@ export default function Header() {
 		<>
 			<div className="flex justify-around">
 				<div className="flex flex-col justify-center gap-3">
-					<p className="text-xl font-semibold text-gray-900 dark:text-white">{intro}</p>
-					<h1 className="text-6xl font-semibold text-gray-900 dark:text-white">
+					<p className="text-xl font-semibold text-slate-50 dark:text-white">{intro}</p>
+					<h1 className="text-6xl font-semibold text-slate-50 dark:text-white">
 						{fullName}
 					</h1>
-					<p className="text-xl font-semibold text-gray-900 dark:text-white">
+					<p className="text-xl font-semibold text-slate-50 dark:text-white">
 						{shortDescription}
 						<br className="block md:hidden" />
 						<span
@@ -41,7 +41,7 @@ export default function Header() {
 						<Link href={linkCV} target="_blank">
 							<button
 								type="button"
-								className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-black dark:hover:bg-gray-100 dark:focus:ring-gray-800 ease-in duration-200"
+								className="text-slate-50 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-black dark:hover:bg-gray-100 dark:focus:ring-gray-800 ease-in duration-200"
 							>
 								Hire Me
 							</button>
