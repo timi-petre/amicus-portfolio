@@ -1,5 +1,11 @@
 import Link from 'next/link'
 export default function Navbar() {
+	const navbarItems = [
+		['Home', '/'],
+		['Blog', '/navigation/blog'],
+		['About', '/navigation/about'],
+		['Projects', '/projects'],
+	]
 	return (
 		<>
 			<nav className="flex justify-between flex-wrap mx-5 my-5 space-x-4 w-full">
@@ -7,12 +13,7 @@ export default function Navbar() {
 					<h1 className="text-2xl leading-loose">Timi</h1>
 				</Link>
 				<div className="flex justify-end ">
-					{[
-						['Home', '/'],
-						['Blog', '/navigation/blog'],
-						['About', '/navigation/about'],
-						['Projects', '/projects'],
-					].map(([title, url]) => (
+					{navbarItems.map(([title, url]) => (
 						<Link
 							href={url}
 							key={title}
