@@ -9,6 +9,7 @@ export default function Header() {
 	let intro = 'Hello there...'
 	let fullName = 'Timotei Petre'
 	const linkCV = 'https://timoteipetre.netlify.app/'
+	const linkGithub = 'https://github.com/timi-petre'
 	return (
 		<>
 			<div className="flex justify-around">
@@ -30,7 +31,7 @@ export default function Header() {
 					<br />
 					<div className="flex">
 						{/* <Link href="/#projects"> */}
-						<Link href="/projects">
+						<Link href={linkGithub} target="_blank">
 							<button
 								type="button"
 								className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ease-in duration-200"
