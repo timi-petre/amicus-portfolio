@@ -9,7 +9,7 @@ export default function Projects() {
 			<div className="flex flex-col justify-center text-center">
 				<h1 className="flex text-7xl justify-center my-3">Projects</h1>
 				<p className="my-2 mb-3">
-					<q>You cand o everything you set in your mind to.</q> <br />- Benjamin Franklin
+					<q>You can do everything you set in your mind to.</q> <br />- Benjamin Franklin
 				</p>
 				<hr />
 				<div className="projects-wrapper my-5">

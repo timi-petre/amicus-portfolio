@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import style from '../styles/components/Home.module.css'
 
-export default function Header() {
+function Header() {
 	let shortDescription = `I Am Passionate `
 	let longDescription =
 		'Budding front-end developer, always looking for new challenges and learning opportunities.'
@@ -10,6 +10,7 @@ export default function Header() {
 	let fullName = 'Timotei Petre'
 	const linkCV = 'https://timoteipetre.netlify.app/'
 	const linkGithub = 'https://github.com/timi-petre'
+
 	return (
 		<>
 			<div className="flex justify-around">
@@ -53,11 +54,21 @@ export default function Header() {
 				<div className={`${style.blob} max-lg:hidden`}></div>
 			</div>
 
-			{/* <div className={`animate-bounce w-6 h-6 ${style.centered} max-lg:hidden`}>
-				<i className={`${style.circle_parent} fa-regular fa-circle`}>
-					<i className={`fa-solid fa-chevron-down ${style.arrow_child}`}></i>
-				</i>
-			</div> */}
+			<div className={`animate-bounce w-6 h-6 ${style.centered} max-lg:hidden`}>
+				<a href="/#about" className="text-slate-50 dark:text-white">
+					<i className={`${style.circle_parent} fa-regular fa-circle`}>
+						<i className={`fa-solid fa-chevron-down ${style.arrow_child}`}></i>
+					</i>
+				</a>
+			</div>
+		</>
+	)
+}
+
+export default function Home() {
+	return (
+		<>
+			<Header />
 		</>
 	)
 }

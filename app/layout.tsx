@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import Footer from './components/Footer'
 import './globals.css'
 import Navbar from './navbar'
 
@@ -18,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<div className="container mx-auto px-5 sm:px-0">
 					<Navbar />
 					{children}
-					{/* <Footer /> */}
+					<Footer />
 				</div>
 				<script
 					src="https://kit.fontawesome.com/42c1633124.js"

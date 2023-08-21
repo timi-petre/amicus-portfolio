@@ -2,9 +2,9 @@
 	background: url(/././blobw.svg) no-repeat;
 	width: 100%;
 	max-width: 800px;
-	height: 800px;
-	background-size: cover;
-	/* background-position: center center; */
+	height: 700px;
+	background-size: contain;
+	background-position: center center;
 }
 
 .centered {
