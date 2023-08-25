@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import FooterLinks from './utils/FooterLinks'
 
@@ -14,13 +15,14 @@ export default function Footer() {
 			<footer className="flex justify-between items-center w-full h-24">
 				<div className="flex items-center space-x-2">
 					{links.map((link: any, index: any) => (
-						<a
+						<Link
 							href={linksSocial[index]}
+							target="_blank"
 							key={index}
 							className="text-lg text-slate-400 hover:text-slate-100 ease-in duration-200"
 						>
 							<i className={`fa-brands fa-${link}`}></i>
-						</a>
+						</Link>
 					))}
 				</div>
 				<p className="text-center text-slate-400">
