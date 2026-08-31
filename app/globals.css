@@ -3,23 +3,172 @@
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+	--ink: #0a0b0d;
+	--ink-raised: #101216;
+	--paper: #e9e6e0;
+	--paper-dim: #9a9ba1;
+	--paper-faint: #6a6c73;
+	--rule: rgba(233, 230, 224, 0.11);
+	--rule-soft: rgba(233, 230, 224, 0.06);
+	--amber: #e0a458;
+	--amber-dim: rgba(224, 164, 88, 0.14);
+	--granted: #6ee7a0;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 6rem;
+	background: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
 	}
-	body {
-		background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-			rgb(var(--background-start-rgb));
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-delay: 0ms !important;
+		transition-duration: 0.001ms !important;
 	}
 }
 
 body {
-	color: rgb(var(--foreground-rgb));
+	background: var(--ink);
+	color: var(--paper);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Film grain + a faint amber wash behind the fold. Atmosphere, not decoration. */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background:
+		radial-gradient(60rem 40rem at 78% -10%, rgba(224, 164, 88, 0.09), transparent 65%),
+		radial-gradient(50rem 36rem at 5% 12%, rgba(110, 231, 160, 0.04), transparent 60%);
+}
+
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+	opacity: 0.32;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+::selection {
+	background: var(--amber);
+	color: var(--ink);
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: 2px solid var(--amber);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* Section label: 03 / TOOLBOX */
+.eyebrow {
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--paper-faint);
+}
+
+.rule-top {
+	border-top: 1px solid var(--rule);
+}
+
+/* Page-load choreography: one orchestrated reveal, staggered by --i. */
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.rise {
+	opacity: 0;
+	animation: rise 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+	animation-delay: calc(var(--i, 0) * 85ms);
+}
+
+/* Scroll reveal where the browser can do it without JS. */
+@supports (animation-timeline: view()) {
+	@media (prefers-reduced-motion: no-preference) {
+		.reveal {
+			animation: rise linear both;
+			animation-timeline: view();
+			animation-range: entry 5% cover 22%;
+		}
+	}
+}
+
+/* The sign-in log: entries land one after another, cursor blinks at the end. */
+@keyframes log-in {
+	from {
+		opacity: 0;
+		transform: translateX(-6px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.log-row {
+	opacity: 0;
+	animation: log-in 0.5s ease-out forwards;
+	animation-delay: calc(700ms + var(--i) * 260ms);
+}
+
+@keyframes blink {
+	0%,
+	49% {
+		opacity: 1;
+	}
+	50%,
+	100% {
+		opacity: 0;
+	}
+}
+
+.caret {
+	animation: blink 1.1s steps(1) infinite;
+}
+
+/* Hairline that draws itself under section headings. */
+@keyframes draw {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.draw {
+	transform-origin: left;
+}
+
+@supports (animation-timeline: view()) {
+	@media (prefers-reduced-motion: no-preference) {
+		.draw {
+			animation: draw linear both;
+			animation-timeline: view();
+			animation-range: entry 10% cover 18%;
+		}
+	}
 }
