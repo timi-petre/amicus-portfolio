@@ -1,6 +1,6 @@
 export const cv = {
 	href: '/cv/Timotei-Petre-CV.pdf',
-	size: '40 KB',
+	size: '36 KB',
 	updated: 'August 2026',
 }
 
@@ -14,7 +14,7 @@ export const profile = {
 	linkedin: 'https://linkedin.com/in/timotei-sorin-petre',
 	github: 'https://github.com/timi-petre',
 	summary:
-		'I run identity and access operations day to day: provisioning and offboarding in Entra ID and on-prem Active Directory, group-based licensing, MFA and passkey resets, and tracing why someone cannot sign in. I work under delegated roles and request privileged actions through PIM. Before this, I supported enterprise customers of Auth0.',
+		'I work day to day on identity tasks in Microsoft Entra ID and on-prem Active Directory: account creation, group assignment, group-based licensing, offboarding, and MFA and passkey resets. I work under delegated administrative roles, with privileged actions requested through PIM and anything beyond that scope escalated to L3. Before this, I supported enterprise customers of Auth0.',
 }
 
 /** Real operations, in the order a working day tends to produce them. */
@@ -36,7 +36,7 @@ export const focus = [
 	{
 		n: '02',
 		title: 'Access troubleshooting',
-		body: 'Sign-in and audit log analysis, MFA exception group membership, users blocked by location-based policies, directory synchronisation checks.',
+		body: 'Sign-in and audit log review, MFA exception group membership, users blocked by location-based policies, directory synchronisation checks.',
 	},
 	{
 		n: '03',
@@ -70,10 +70,10 @@ export const experience = [
 		period: '01/2024 - 10/2024',
 		place: 'Brașov, remote',
 		points: [
-			'Technical support for enterprise customers of Auth0 (Okta Customer Identity Cloud), handling tickets through Salesforce.',
-			'Tenant configuration: custom domains, Universal and Classic login pages, SAML and OpenID Connect connection settings.',
-			'Verified tenant type, subscription plan and user rights to determine whether a requested action was available.',
-			'Troubleshot authentication and MFA issues, escalating complex cases to engineering.',
+			'Handled support tickets from enterprise customers of Auth0 (Okta Customer Identity Cloud) through Salesforce.',
+			'Answered tenant configuration questions: custom domains, Universal and Classic login pages, SAML and OpenID Connect connection settings.',
+			'Checked entitlements and permissions: tenant type, subscription plan and user rights, to determine whether a requested action was available.',
+			'Investigated authentication and MFA issues reported by customers, escalating complex cases to engineering.',
 		],
 	},
 	{
@@ -102,13 +102,13 @@ export const toolbox = [
 		group: 'Identity & access',
 		items: [
 			'Entra ID: users, groups, lifecycle',
-			'Active Directory (on-prem)',
+			'Active Directory (on-prem, delegated scope)',
 			'Group-based licensing',
 			'MFA, passkeys, auth methods',
 			'Conditional Access troubleshooting',
 			'PIM (just-in-time activation)',
-			'Okta / Auth0 CIC',
-			'SAML, OAuth 2.0, OpenID Connect',
+			'Okta / Auth0 CIC (support level)',
+			'SAML, OAuth 2.0, OpenID Connect (familiarity)',
 		],
 	},
 	{
@@ -124,7 +124,7 @@ export const toolbox = [
 	{
 		group: 'Security & monitoring',
 		items: [
-			'Sign-in and audit log analysis',
+			'Sign-in and audit log review',
 			'OpenVAS, Wazuh',
 			'Veeam Backup',
 			'LAPS and BitLocker key retrieval',
@@ -146,6 +146,11 @@ export const alsoBuilt = [
 		note: 'Angular developer, volunteer · 2023-2024',
 		body: 'Components and features for a symptom-tracking health platform, built alongside other developers.',
 		href: 'https://long-covid-spa-frontend.onrender.com',
+	},
+	{
+		title: 'AnimaLearn',
+		note: 'Unity · App Store, 2026',
+		body: "Educational augmented-reality game for children, built in Unity 3D as my bachelor's project, then rebuilt from the ground up and published.",
 	},
 	{
 		title: "Noah's Story",
@@ -170,6 +175,7 @@ export const credentials = {
 	certifications: [
 		'Auth0 Specialist',
 		'Auth0 Consumer Application Implementation Champion',
+		'MS-102 Microsoft 365 Administrator (in progress)',
 		'Frontend JavaScript Development, LINK Academy (2022-2023)',
 	],
 	education: [

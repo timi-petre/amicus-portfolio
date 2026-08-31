@@ -161,13 +161,13 @@ export default function Home() {
 					{focus.map((f, i) => (
 						<article
 							key={f.n}
-							data-reveal
-							style={step(i + 1)}
 							className="group bg-ink p-8 transition-colors duration-300 hover:bg-raised"
 						>
-							<span className="eyebrow transition-colors group-hover:text-amber">{f.n}</span>
-							<h3 className="mt-4 font-display text-2xl tracking-tight">{f.title}</h3>
-							<p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-dim">{f.body}</p>
+							<div data-reveal style={step(i + 1)}>
+								<span className="eyebrow transition-colors group-hover:text-amber">{f.n}</span>
+								<h3 className="mt-4 font-display text-2xl tracking-tight">{f.title}</h3>
+								<p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-dim">{f.body}</p>
+							</div>
 						</article>
 					))}
 				</div>
@@ -239,7 +239,7 @@ export default function Home() {
 				<div className="grid gap-px bg-rule sm:grid-cols-2">
 					{alsoBuilt.map((p, i) => {
 						const inner = (
-							<>
+							<div data-reveal style={step(i + 1)}>
 								<div className="flex items-baseline justify-between gap-4">
 									<h3 className="font-display text-xl tracking-tight">{p.title}</h3>
 									{p.href && (
@@ -252,23 +252,25 @@ export default function Home() {
 									{p.note}
 								</p>
 								<p className="mt-4 text-[0.9375rem] leading-relaxed text-paper-dim">{p.body}</p>
-							</>
+							</div>
 						)
-						const cls = 'group block bg-ink p-8 transition-colors duration-300 hover:bg-raised'
+						// an odd card would leave half a row empty, so the last one spans the grid
+						const wide = alsoBuilt.length % 2 === 1 && i === alsoBuilt.length - 1
+						const cls = `group block bg-ink p-8 transition-colors duration-300 hover:bg-raised${
+							wide ? ' sm:col-span-2' : ''
+						}`
 						return p.href ? (
 							<a
 								key={p.title}
 								href={p.href}
 								target="_blank"
 								rel="noopener noreferrer"
-								data-reveal
-								style={step(i + 1)}
 								className={cls}
 							>
 								{inner}
 							</a>
 						) : (
-							<div key={p.title} data-reveal style={step(i + 1)} className={cls}>
+							<div key={p.title} className={cls}>
 								{inner}
 							</div>
 						)
