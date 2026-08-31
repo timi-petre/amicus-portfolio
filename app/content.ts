@@ -151,6 +151,7 @@ export const alsoBuilt = [
 		title: 'AnimaLearn',
 		note: 'Unity · App Store, 2026',
 		body: "Educational augmented-reality game for children, built in Unity 3D as my bachelor's project, then rebuilt from the ground up and published.",
+		href: 'https://apps.apple.com/ro/app/animalearn/id6803595406',
 	},
 	{
 		title: "Noah's Story",
