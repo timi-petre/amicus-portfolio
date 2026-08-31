@@ -357,10 +357,10 @@ export default function Home() {
 					<div data-reveal style={step(1)} className="lg:col-span-4">
 						<div className="relative ml-auto w-44 border border-rule p-2 sm:w-52">
 							<Image
-								src="/images/timotei.png"
+								src="/images/timotei.jpg"
 								alt={profile.name}
-								width={433}
-								height={577}
+								width={640}
+								height={853}
 								className="w-full grayscale transition-all duration-500 hover:grayscale-0"
 							/>
 							<span className="absolute -bottom-3 left-4 bg-ink px-2 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-paper-faint">
