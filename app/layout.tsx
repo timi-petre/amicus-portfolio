@@ -3,6 +3,7 @@ import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
 
 import Footer from './components/Footer'
 import Nav from './components/Nav'
+import Reveal from './components/Reveal'
 import './globals.css'
 
 const display = Fraunces({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
 			<body className="font-[family-name:var(--font-sans)] antialiased">
 				<div className="relative z-10">
+					<Reveal />
 					<Nav />
 					<main>{children}</main>
 					<Footer />

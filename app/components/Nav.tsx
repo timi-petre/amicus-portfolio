@@ -15,7 +15,7 @@ export default function Nav() {
 	const [open, setOpen] = useState(false)
 
 	return (
-		<header className="sticky top-0 z-50 border-b border-rule bg-ink/80 backdrop-blur-md">
+		<header className="sticky top-0 z-50 border-b border-rule bg-ink/90 backdrop-blur-md">
 			<nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
 				<Link href="#top" className="group flex items-baseline gap-2">
 					<span className="font-display text-lg tracking-tight">Timotei Petre</span>

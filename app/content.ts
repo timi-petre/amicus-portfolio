@@ -1,3 +1,9 @@
+export const cv = {
+	href: '/cv/Timotei-Petre-CV.pdf',
+	size: '40 KB',
+	updated: 'August 2026',
+}
+
 export const profile = {
 	name: 'Timotei Petre',
 	role: 'IT Support Engineer',
@@ -145,6 +151,7 @@ export const alsoBuilt = [
 		title: "Noah's Story",
 		note: 'Unity · App Store & Google Play',
 		body: 'Educational mobile game for Child Evangelism Fellowship. 3D character implementation and store release.',
+		href: 'https://apps.apple.com/ro/app/noahs-story/id1555074864',
 	},
 	{
 		title: 'Fundația România Pro Culture',

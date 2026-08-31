@@ -1,6 +1,7 @@
-import { profile } from '../content'
+import { cv, profile } from '../content'
 
 const links = [
+	['CV', cv.href],
 	['LinkedIn', profile.linkedin],
 	['GitHub', profile.github],
 	['Email', `mailto:${profile.email}`],
