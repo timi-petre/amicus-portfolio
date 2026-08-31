@@ -65,15 +65,18 @@ export default function Home() {
 						<a
 							href={cv.href}
 							download
-							className="inline-flex items-center gap-2 border border-rule px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim transition-colors hover:border-amber hover:text-amber"
+							className="group inline-flex items-center gap-2 btn-outline px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim"
 						>
-							CV <span className="text-[0.625rem] text-paper-faint">PDF</span>
+							CV{' '}
+							<span className="btn-tag text-[0.625rem]">
+								PDF
+							</span>
 						</a>
 						<a
 							href={profile.linkedin}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center border border-rule px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim transition-colors hover:border-amber hover:text-amber"
+							className="inline-flex items-center btn-outline px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim"
 						>
 							LinkedIn
 						</a>
@@ -81,7 +84,7 @@ export default function Home() {
 							href={profile.github}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center border border-rule px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim transition-colors hover:border-amber hover:text-amber"
+							className="inline-flex items-center btn-outline px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim"
 						>
 							GitHub
 						</a>
@@ -316,10 +319,10 @@ export default function Home() {
 						<a
 							href={cv.href}
 							download
-							className="group mt-8 inline-flex items-center gap-3 border border-rule px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim transition-colors hover:border-amber hover:text-amber"
+							className="group mt-8 inline-flex items-center gap-3 btn-outline px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-paper-dim"
 						>
 							Download CV
-							<span className="text-[0.625rem] text-paper-faint">
+							<span className="btn-tag text-[0.625rem]">
 								PDF · {cv.size} · {cv.updated}
 							</span>
 						</a>

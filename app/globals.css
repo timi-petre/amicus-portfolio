@@ -87,6 +87,50 @@ button:focus-visible {
 	border-top: 1px solid var(--rule);
 }
 
+/* Outline button: hovering wipes the amber fill in from the left, and the label
+   turns dark just behind the leading edge. */
+.btn-outline {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	border: 1px solid var(--rule);
+	transition:
+		border-color 0.25s ease,
+		color 0.25s ease 0.12s;
+}
+
+.btn-outline::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: var(--amber);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+	border-color: var(--amber);
+	color: var(--ink);
+}
+
+.btn-outline:hover::before,
+.btn-outline:focus-visible::before {
+	transform: scaleX(1);
+}
+
+.btn-tag {
+	color: var(--paper-faint);
+	transition: color 0.25s ease 0.12s;
+}
+
+.btn-outline:hover .btn-tag,
+.btn-outline:focus-visible .btn-tag {
+	color: rgba(10, 11, 13, 0.7);
+}
+
 /* One reveal system for load and scroll: elements drop in from above, staggered
    top to bottom by --i. The hidden start state is scoped to .js-reveal (set by
    Reveal.tsx), so content stays visible when JS never runs. */
