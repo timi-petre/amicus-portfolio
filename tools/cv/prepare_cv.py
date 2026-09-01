@@ -35,6 +35,11 @@ LINKS = [
     ("Noah's Story", 'https://apps.apple.com/ro/app/noahs-story/id1555074864'),
     ('AnimaLearn', 'https://apps.apple.com/ro/app/animalearn/id6803595406'),
 ]
+# The template paints its one real URL in this blue; app names get it too, so that
+# "blue means you can click it" holds across the page.
+LINK_BLUE = b'0.172549019 0.372549019 0.658823529'
+COLOUR = ["Noah's Story", 'AnimaLearn']
+
 PHONE = re.compile(r'\d{9,12}')
 GLYPH = re.compile(
     rb'/(F\w+)\s+([\d.]+)\s+Tf'
@@ -92,6 +97,32 @@ def strip_phone(content, runs):
     return edits
 
 
+def colour_links(content, runs):
+    """Repaint the app names in the template's link blue.
+
+    Each of these names is drawn in its own text object, and every text object sets
+    its own fill colour just before BT, so recolouring one leaves the rest alone.
+    """
+    flat = lambda t: re.sub(r'\s', ' ', t)
+    edits = []
+    for needle in COLOUR:
+        for text, chars, y, size, mat, span in runs:
+            if flat(needle) not in flat(text):
+                continue
+            head = content[max(0, span[0] - 240):span[0]]
+            m = None
+            for m in re.finditer(rb'([\d.]+ [\d.]+ [\d.]+) scn', head):
+                pass
+            assert m, f'no fill colour found before the block holding {needle!r}'
+            at = max(0, span[0] - 240) + m.start(1)
+            edits.append((at, at + len(m.group(1)), LINK_BLUE))
+            print(f'  {needle!r} painted in link blue')
+            break
+        else:
+            raise AssertionError(f'could not find a block to recolour for {needle!r}')
+    return edits
+
+
 def link_rects(runs):
     """A page rectangle for every target phrase."""
     flat = lambda t: re.sub(r'\s', ' ', t)
@@ -122,8 +153,9 @@ def main(src, out_path):
     page = writer.pages[0]
     assert page.get_contents().get_data() == content, 'content stream mismatch'
 
+    edits = strip_phone(content, runs) + colour_links(content, runs)
     edited = content
-    for s, e, rep in sorted(strip_phone(content, runs), reverse=True):
+    for s, e, rep in sorted(edits, reverse=True):
         edited = edited[:s] + rep + edited[e:]
 
     stream = DecodedStreamObject()
