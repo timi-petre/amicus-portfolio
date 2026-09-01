@@ -38,7 +38,8 @@ LINKS = [
 # The template paints its one real URL in this blue; app names get it too, so that
 # "blue means you can click it" holds across the page.
 LINK_BLUE = b'0.172549019 0.372549019 0.658823529'
-COLOUR = ["Noah's Story", 'AnimaLearn']
+COLOUR = ["Noah's Story", 'AnimaLearn', 'long-covid-spa-frontend.onrender.com',
+          'timoteisorin.petre@gmail.com']
 
 PHONE = re.compile(r'\d{9,12}')
 GLYPH = re.compile(
@@ -98,25 +99,37 @@ def strip_phone(content, runs):
 
 
 def colour_links(content, runs):
-    """Repaint the app names in the template's link blue.
+    """Repaint every clickable phrase in the template's link blue.
 
-    Each of these names is drawn in its own text object, and every text object sets
-    its own fill colour just before BT, so recolouring one leaves the rest alone.
+    A phrase that has its own text object is recoloured through the fill colour set
+    just before BT, which also catches the second, offset copy the exporter draws for
+    faux bold. A phrase sharing a text object with other text (the email, which sits
+    on the same line as the location) instead gets the colour switched on before its
+    first glyph and switched back after its last, so its neighbours stay dark.
     """
     flat = lambda t: re.sub(r'\s', ' ', t)
     edits = []
     for needle in COLOUR:
         for text, chars, y, size, mat, span in runs:
-            if flat(needle) not in flat(text):
+            i = flat(text).find(flat(needle))
+            if i < 0:
                 continue
-            head = content[max(0, span[0] - 240):span[0]]
-            m = None
-            for m in re.finditer(rb'([\d.]+ [\d.]+ [\d.]+) scn', head):
+            head_at = max(0, span[0] - 240)
+            own = None
+            for own in re.finditer(rb'([\d.]+ [\d.]+ [\d.]+) scn', content[head_at:span[0]]):
                 pass
-            assert m, f'no fill colour found before the block holding {needle!r}'
-            at = max(0, span[0] - 240) + m.start(1)
-            edits.append((at, at + len(m.group(1)), LINK_BLUE))
-            print(f'  {needle!r} painted in link blue')
+            assert own, f'no fill colour found before the block holding {needle!r}'
+
+            alone = flat(text).replace(flat(needle), '').strip() == ''
+            if alone:
+                at = head_at + own.start(1)
+                edits.append((at, at + len(own.group(1)), LINK_BLUE))
+            else:
+                run = chars[i:i + len(needle)]
+                edits.append((run[0][3], run[0][3], LINK_BLUE + b' scn '))
+                edits.append((run[-1][4], run[-1][4], b' ' + own.group(1) + b' scn'))
+            print(f'  {needle[:36]!r} painted in link blue'
+                  f'{"" if alone else " (part of a shared line)"}')
             break
         else:
             raise AssertionError(f'could not find a block to recolour for {needle!r}')
