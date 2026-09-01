@@ -1,6 +1,6 @@
 export const cv = {
 	href: '/cv/Timotei-Petre-CV.pdf',
-	size: '36 KB',
+	size: '38 KB',
 	updated: 'August 2026',
 }
 
