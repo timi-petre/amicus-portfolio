@@ -30,6 +30,54 @@ function SectionHead({ n, title, aside }: { n: string; title: string; aside?: st
 	)
 }
 
+/** Shared two-column card grid used by "Also built" and "Shipped". */
+function CardGrid({
+	items,
+}: {
+	items: { title: string; note: string; body: string; href?: string }[]
+}) {
+	return (
+		<div className="grid gap-px bg-rule sm:grid-cols-2">
+			{items.map((p, i) => {
+				const inner = (
+					<div data-reveal style={step((i % 2) + 1)}>
+						<div className="flex items-baseline justify-between gap-4">
+							<h3 className="font-display text-xl tracking-tight">{p.title}</h3>
+							{p.href && <span className="sr-only"> (opens in a new tab)</span>}
+							{p.href && (
+								<span
+									aria-hidden="true"
+									className="font-mono text-xs text-paper-faint transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber"
+								>
+									↗
+								</span>
+							)}
+						</div>
+						<p className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-paper-faint">
+							{p.note}
+						</p>
+						<p className="mt-4 text-[0.9375rem] leading-relaxed text-paper-dim">{p.body}</p>
+					</div>
+				)
+				// an odd card would leave half a row empty, so the last one spans the grid
+				const wide = items.length % 2 === 1 && i === items.length - 1
+				const cls = `group block bg-ink p-8 transition-colors duration-300 hover:bg-raised${
+					wide ? ' sm:col-span-2' : ''
+				}`
+				return p.href ? (
+					<a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer" className={cls}>
+						{inner}
+					</a>
+				) : (
+					<div key={p.title} className={cls}>
+						{inner}
+					</div>
+				)
+			})}
+		</div>
+	)
+}
+
 export default function Home() {
 	return (
 		<div id="top" className="mx-auto max-w-6xl px-6 lg:px-10">
@@ -246,79 +294,13 @@ export default function Home() {
 			{/* ── Also built ───────────────────────────────────────── */}
 			<section id="built" className="scroll-mt-24 py-20">
 				<SectionHead n="04" title="Also built" aside="Before and beside the day job" />
-				<div className="grid gap-px bg-rule sm:grid-cols-2">
-					{alsoBuilt.map((p, i) => {
-						const inner = (
-							<div data-reveal style={step(i + 1)}>
-								<div className="flex items-baseline justify-between gap-4">
-									<h3 className="font-display text-xl tracking-tight">{p.title}</h3>
-									{p.href && (
-										<span className="font-mono text-xs text-paper-faint transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber">
-											↗
-										</span>
-									)}
-								</div>
-								<p className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-paper-faint">
-									{p.note}
-								</p>
-								<p className="mt-4 text-[0.9375rem] leading-relaxed text-paper-dim">{p.body}</p>
-							</div>
-						)
-						// an odd card would leave half a row empty, so the last one spans the grid
-						const wide = alsoBuilt.length % 2 === 1 && i === alsoBuilt.length - 1
-						const cls = `group block bg-ink p-8 transition-colors duration-300 hover:bg-raised${
-							wide ? ' sm:col-span-2' : ''
-						}`
-						return p.href ? (
-							<a
-								key={p.title}
-								href={p.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								className={cls}
-							>
-								{inner}
-							</a>
-						) : (
-							<div key={p.title} className={cls}>
-								{inner}
-							</div>
-						)
-					})}
-				</div>
+				<CardGrid items={alsoBuilt} />
 			</section>
 
 			{/* ── Shipped ──────────────────────────────────────────── */}
 			<section id="shipped" className="scroll-mt-24 py-20">
-				<SectionHead n="05" title="Shipped" aside="Built with Claude Code" />
-				<div className="grid gap-px bg-rule sm:grid-cols-2">
-					{shipped.map((p, i) => {
-						const inner = (
-							<div data-reveal style={step(i + 1)}>
-								<div className="flex items-baseline justify-between gap-4">
-									<h3 className="font-display text-xl tracking-tight">{p.title}</h3>
-									<span className="font-mono text-xs text-paper-faint transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber">
-										↗
-									</span>
-								</div>
-								<p className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-paper-faint">
-									{p.note}
-								</p>
-								<p className="mt-4 text-[0.9375rem] leading-relaxed text-paper-dim">{p.body}</p>
-							</div>
-						)
-						// an odd card would leave half a row empty, so the last one spans the grid
-						const wide = shipped.length % 2 === 1 && i === shipped.length - 1
-						const cls = `group block bg-ink p-8 transition-colors duration-300 hover:bg-raised${
-							wide ? ' sm:col-span-2' : ''
-						}`
-						return (
-							<a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer" className={cls}>
-								{inner}
-							</a>
-						)
-					})}
-				</div>
+				<SectionHead n="05" title="Shipped" aside="Shipped with Claude Code" />
+				<CardGrid items={shipped} />
 			</section>
 
 			{/* ── Credentials ──────────────────────────────────────── */}

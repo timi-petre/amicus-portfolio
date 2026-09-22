@@ -148,18 +148,6 @@ export const alsoBuilt = [
 		href: 'https://long-covid-spa-frontend.onrender.com',
 	},
 	{
-		title: 'AnimaLearn',
-		note: 'Unity · App Store, 2026',
-		body: "Educational augmented-reality game for children, built in Unity 3D as my bachelor's project, then rebuilt from the ground up and published.",
-		href: 'https://apps.apple.com/ro/app/animalearn/id6803595406',
-	},
-	{
-		title: "Noah's Story",
-		note: 'Unity · App Store & Google Play',
-		body: 'Educational mobile game for Child Evangelism Fellowship. 3D character implementation and store release.',
-		href: 'https://apps.apple.com/ro/app/noahs-story/id1555074864',
-	},
-	{
 		title: 'Fundația România Pro Culture',
 		note: 'WordPress, volunteer · 2018',
 		body: "Built and maintained the organisation's website, from interface to ongoing technical support.",
@@ -249,4 +237,10 @@ export const credentials = {
 		},
 	],
 	languages: ['Romanian: native', 'English: upper-intermediate (B2)'],
+}
+
+// Guards against the same product being listed as both "also built" and "shipped".
+const listedTwice = shipped.filter((s) => alsoBuilt.some((a) => a.title === s.title))
+if (listedTwice.length) {
+	throw new Error(`Listed in both alsoBuilt and shipped: ${listedTwice.map((d) => d.title).join(', ')}`)
 }
