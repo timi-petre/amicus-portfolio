@@ -148,6 +148,18 @@ export const alsoBuilt = [
 		href: 'https://long-covid-spa-frontend.onrender.com',
 	},
 	{
+		title: 'AnimaLearn',
+		note: 'Unity · App Store, 2026',
+		body: "Educational augmented-reality game for children, built in Unity 3D as my bachelor's project, then rebuilt from the ground up and published.",
+		href: 'https://apps.apple.com/ro/app/animalearn/id6803595406',
+	},
+	{
+		title: "Noah's Story",
+		note: 'Unity · App Store & Google Play',
+		body: 'Educational mobile game for Child Evangelism Fellowship. 3D character implementation and store release.',
+		href: 'https://apps.apple.com/ro/app/noahs-story/id1555074864',
+	},
+	{
 		title: 'Fundația România Pro Culture',
 		note: 'WordPress, volunteer · 2018',
 		body: "Built and maintained the organisation's website, from interface to ongoing technical support.",
@@ -174,10 +186,10 @@ export const shipped = [
 		href: 'https://apps.apple.com/ro/app/id6798375465',
 	},
 	{
-		title: 'MouseScroll',
+		title: 'Tweakle',
 		note: 'macOS · ontagonal.app',
-		body: 'Inverts scrolling for the mouse wheel only, and leaves the trackpad natural.',
-		href: 'https://ontagonal.app/mousescroll/',
+		body: 'Flips the scroll direction for the mouse wheel alone, and leaves the trackpad exactly as Apple built it.',
+		href: 'https://ontagonal.app/tweakle/',
 	},
 	{
 		title: 'Quotch',
@@ -196,18 +208,6 @@ export const shipped = [
 		note: 'Android · Flutter',
 		body: 'Live scores and push notifications for the 2026 World Cup.',
 		href: 'https://play.google.com/store/apps/details?id=com.worldcup2026.wc2026_live',
-	},
-	{
-		title: "Noah's Story",
-		note: 'iOS & Android · Unity',
-		body: 'Educational game for children, in plain, AR and VR modes. First built in 2019, rebuilt on Unity 6 and republished in 2026.',
-		href: 'https://apps.apple.com/ro/app/id1555074864',
-	},
-	{
-		title: 'AnimaLearn',
-		note: 'iOS · Unity',
-		body: "AR game where children learn animal names, by spelling and by quiz. Rebuilt from my bachelor's project and published in 2026.",
-		href: 'https://apps.apple.com/ro/app/id6803595406',
 	},
 	{
 		title: 'Ontagonal',
