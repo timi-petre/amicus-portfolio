@@ -40,10 +40,9 @@ function CardGrid({
 		<div className="grid gap-px bg-rule sm:grid-cols-2">
 			{items.map((p, i) => {
 				const inner = (
-					<div data-reveal style={step((i % 2) + 1)}>
+					<div data-reveal style={step(Math.floor(i / 2) + 1)}>
 						<div className="flex items-baseline justify-between gap-4">
 							<h3 className="font-display text-xl tracking-tight">{p.title}</h3>
-							{p.href && <span className="sr-only"> (opens in a new tab)</span>}
 							{p.href && (
 								<span
 									aria-hidden="true"
@@ -57,13 +56,14 @@ function CardGrid({
 							{p.note}
 						</p>
 						<p className="mt-4 text-[0.9375rem] leading-relaxed text-paper-dim">{p.body}</p>
+						{p.href && <span className="sr-only"> (opens in a new tab)</span>}
 					</div>
 				)
 				// an odd card would leave half a row empty, so the last one spans the grid
 				const wide = items.length % 2 === 1 && i === items.length - 1
-				const cls = `group block bg-ink p-8 transition-colors duration-300 hover:bg-raised${
-					wide ? ' sm:col-span-2' : ''
-				}`
+				const cls = `block bg-ink p-8${
+					p.href ? ' group transition-colors duration-300 hover:bg-raised' : ''
+				}${wide ? ' sm:col-span-2' : ''}`
 				return p.href ? (
 					<a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer" className={cls}>
 						{inner}
@@ -116,7 +116,10 @@ export default function Home() {
 							className="group inline-flex items-center gap-2 bg-paper px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-ink transition-colors hover:bg-amber"
 						>
 							Get in touch
-							<span className="transition-transform duration-300 group-hover:translate-x-1">
+							<span
+								aria-hidden="true"
+								className="transition-transform duration-300 group-hover:translate-x-1"
+							>
 								→
 							</span>
 						</a>
@@ -184,19 +187,24 @@ export default function Home() {
 										{entry.event}
 									</span>
 									<span
+										aria-hidden="true"
 										className={`font-mono text-[0.625rem] leading-5 ${
 											entry.state === 'ok' ? 'text-granted' : 'text-amber'
 										}`}
 									>
 										{entry.state === 'ok' ? '✓' : '…'}
 									</span>
+									<span className="sr-only">{entry.state === 'ok' ? 'ok' : 'pending'}</span>
 								</li>
 							))}
 							<li className="log-row flex gap-3 px-4 py-3.5" style={step(log.length)}>
 								<span className="font-mono text-[0.6875rem] leading-5 text-paper-faint">
 									now
 								</span>
-								<span className="caret font-mono text-[0.8125rem] leading-5 text-amber">
+								<span
+									aria-hidden="true"
+									className="caret font-mono text-[0.8125rem] leading-5 text-amber"
+								>
 									▍
 								</span>
 							</li>
@@ -221,7 +229,7 @@ export default function Home() {
 							key={f.n}
 							className="group bg-ink p-8 transition-colors duration-300 hover:bg-raised"
 						>
-							<div data-reveal style={step(i + 1)}>
+							<div data-reveal style={step(Math.floor(i / 2) + 1)}>
 								<span className="eyebrow transition-colors group-hover:text-amber">{f.n}</span>
 								<h3 className="mt-4 font-display text-2xl tracking-tight">{f.title}</h3>
 								<p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-dim">{f.body}</p>
@@ -376,7 +384,10 @@ export default function Home() {
 							className="group mt-8 inline-flex items-center gap-3 border-b border-amber pb-1 font-mono text-sm text-amber"
 						>
 							{profile.email}
-							<span className="transition-transform duration-300 group-hover:translate-x-1">
+							<span
+								aria-hidden="true"
+								className="transition-transform duration-300 group-hover:translate-x-1"
+							>
 								→
 							</span>
 						</a>

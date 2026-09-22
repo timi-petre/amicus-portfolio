@@ -239,8 +239,23 @@ export const credentials = {
 	languages: ['Romanian: native', 'English: upper-intermediate (B2)'],
 }
 
-// Guards against the same product being listed as both "also built" and "shipped".
-const listedTwice = shipped.filter((s) => alsoBuilt.some((a) => a.title === s.title))
-if (listedTwice.length) {
-	throw new Error(`Listed in both alsoBuilt and shipped: ${listedTwice.map((d) => d.title).join(', ')}`)
+// Titlurile ajung chei React în page.tsx, deci un duplicat oriunde rupe reconcilierea
+// în liniște. Normalizăm apostroful tipografic, spațiile și majusculele, fiindcă
+// intrarea ștearsă anterior avea chiar apostrof tipografic.
+const titles = [...alsoBuilt, ...shipped].map((p) =>
+	p.title.trim().toLowerCase().replace(/’/g, "'")
+)
+const dupes = titles.filter((t, i) => titles.indexOf(t) !== i)
+if (dupes.length) {
+	throw new Error(
+		`Duplicate project titles in app/content.ts: ${dupes.join(', ')}. ` +
+			'A project belongs in exactly one of alsoBuilt or shipped, and titles are used as React keys. Delete the extra entry.'
+	)
+}
+
+const linkless = shipped.filter((p) => !p.href).map((p) => p.title)
+if (linkless.length) {
+	throw new Error(
+		`Shipped entries need a store or site link: ${linkless.join(', ')} (app/content.ts)`
+	)
 }
