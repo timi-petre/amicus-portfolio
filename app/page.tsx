@@ -1,6 +1,16 @@
 import Image from 'next/image'
 
-import { alsoBuilt, credentials, cv, experience, focus, log, profile, toolbox } from './content'
+import {
+	alsoBuilt,
+	credentials,
+	cv,
+	experience,
+	focus,
+	log,
+	profile,
+	shipped,
+	toolbox,
+} from './content'
 
 /** Stagger helper: every revealed element carries its position in its group. */
 const step = (i: number) => ({ '--i': i }) as React.CSSProperties
@@ -278,9 +288,42 @@ export default function Home() {
 				</div>
 			</section>
 
+			{/* ── Shipped ──────────────────────────────────────────── */}
+			<section id="shipped" className="scroll-mt-24 py-20">
+				<SectionHead n="05" title="Shipped" aside="Built with Claude Code" />
+				<div className="grid gap-px bg-rule sm:grid-cols-2">
+					{shipped.map((p, i) => {
+						const inner = (
+							<div data-reveal style={step(i + 1)}>
+								<div className="flex items-baseline justify-between gap-4">
+									<h3 className="font-display text-xl tracking-tight">{p.title}</h3>
+									<span className="font-mono text-xs text-paper-faint transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber">
+										↗
+									</span>
+								</div>
+								<p className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-paper-faint">
+									{p.note}
+								</p>
+								<p className="mt-4 text-[0.9375rem] leading-relaxed text-paper-dim">{p.body}</p>
+							</div>
+						)
+						// an odd card would leave half a row empty, so the last one spans the grid
+						const wide = shipped.length % 2 === 1 && i === shipped.length - 1
+						const cls = `group block bg-ink p-8 transition-colors duration-300 hover:bg-raised${
+							wide ? ' sm:col-span-2' : ''
+						}`
+						return (
+							<a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer" className={cls}>
+								{inner}
+							</a>
+						)
+					})}
+				</div>
+			</section>
+
 			{/* ── Credentials ──────────────────────────────────────── */}
 			<section className="py-20">
-				<SectionHead n="05" title="Credentials" />
+				<SectionHead n="06" title="Credentials" />
 				<div className="grid gap-12 lg:grid-cols-12">
 					<div data-reveal style={step(1)} className="lg:col-span-4">
 						<h3 className="eyebrow">Certifications</h3>
@@ -336,7 +379,7 @@ export default function Home() {
 			<section id="contact" className="scroll-mt-24 border-t border-rule py-24">
 				<div className="grid items-center gap-12 lg:grid-cols-12">
 					<div data-reveal style={step(0)} className="lg:col-span-8">
-						<p className="eyebrow">06 · Contact</p>
+						<p className="eyebrow">07 · Contact</p>
 						<h2 className="mt-5 font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] tracking-tight">
 							Hiring for identity
 							<br />

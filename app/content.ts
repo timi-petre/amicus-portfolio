@@ -172,6 +172,63 @@ export const alsoBuilt = [
 	},
 ]
 
+export const shipped = [
+	{
+		title: 'Snipkin',
+		note: 'macOS · Mac App Store',
+		body: 'Menu-bar screenshot tool: capture, mark up, and keep a history of what you shot.',
+		href: 'https://apps.apple.com/ro/app/id6802043028',
+	},
+	{
+		title: 'Shakelf',
+		note: 'macOS · Mac App Store',
+		body: 'A floating shelf for files: drop them on it, carry them between apps, drop them where they belong.',
+		href: 'https://apps.apple.com/ro/app/id6798375465',
+	},
+	{
+		title: 'MouseScroll',
+		note: 'macOS · ontagonal.app',
+		body: 'Inverts scrolling for the mouse wheel only, and leaves the trackpad natural.',
+		href: 'https://ontagonal.app/mousescroll/',
+	},
+	{
+		title: 'Quotch',
+		note: 'macOS · ontagonal.app',
+		body: 'Shows your Claude usage limits in the menu bar, in a small island you can move.',
+		href: 'https://ontagonal.app/quotch/',
+	},
+	{
+		title: 'Cântări de Laudă',
+		note: 'iOS · Flutter',
+		body: 'Offline ChordPro songbook for worship teams: transposition, setlists and sharing.',
+		href: 'https://apps.apple.com/ro/app/id6796594509',
+	},
+	{
+		title: 'World Cup 2026 Live',
+		note: 'Android · Flutter',
+		body: 'Live scores and push notifications for the 2026 World Cup.',
+		href: 'https://play.google.com/store/apps/details?id=com.worldcup2026.wc2026_live',
+	},
+	{
+		title: "Noah's Story",
+		note: 'iOS & Android · Unity',
+		body: 'Educational game for children, in plain, AR and VR modes. First built in 2019, rebuilt on Unity 6 and republished in 2026.',
+		href: 'https://apps.apple.com/ro/app/id1555074864',
+	},
+	{
+		title: 'AnimaLearn',
+		note: 'iOS · Unity',
+		body: "AR game where children learn animal names, by spelling and by quiz. Rebuilt from my bachelor's project and published in 2026.",
+		href: 'https://apps.apple.com/ro/app/id6803595406',
+	},
+	{
+		title: 'Ontagonal',
+		note: 'Web · Cloudflare Pages',
+		body: 'The site the macOS apps live on: a page each, with the signed downloads.',
+		href: 'https://ontagonal.app',
+	},
+]
+
 export const credentials = {
 	certifications: [
 		'Auth0 Specialist',

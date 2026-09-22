@@ -8,6 +8,7 @@ const sections = [
 	['Experience', '#experience'],
 	['Toolbox', '#toolbox'],
 	['Built', '#built'],
+	['Shipped', '#shipped'],
 	['Contact', '#contact'],
 ]
 
