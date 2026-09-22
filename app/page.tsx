@@ -30,6 +30,23 @@ function SectionHead({ n, title, aside }: { n: string; title: string; aside?: st
 	)
 }
 
+function ProjectRef({ link }: { link: { label: string; href: string } }) {
+	return (
+		<a
+			href={link.href}
+			target="_blank"
+			rel="noopener noreferrer"
+			className="group mt-4 inline-flex items-baseline gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-paper-dim transition-colors hover:text-amber"
+		>
+			{link.label}
+			<span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+				↗
+			</span>
+			<span className="sr-only"> (opens in a new tab)</span>
+		</a>
+	)
+}
+
 /** Shared two-column card grid used by "Also built" and "Shipped". */
 function CardGrid({
 	items,
@@ -265,16 +282,19 @@ export default function Home() {
 									{job.place}
 								</p>
 							</div>
-							<ul className="space-y-3 lg:col-span-8">
-								{job.points.map((p) => (
-									<li
-										key={p}
-										className="relative pl-6 text-[0.9375rem] leading-relaxed text-paper-dim before:absolute before:left-0 before:top-[0.7em] before:h-px before:w-3 before:bg-amber"
-									>
-										{p}
-									</li>
-								))}
-							</ul>
+							<div className="lg:col-span-8">
+								<ul className="space-y-3">
+									{job.points.map((p) => (
+										<li
+											key={p}
+											className="relative pl-6 text-[0.9375rem] leading-relaxed text-paper-dim before:absolute before:left-0 before:top-[0.7em] before:h-px before:w-3 before:bg-amber"
+										>
+											{p}
+										</li>
+									))}
+								</ul>
+								{job.link && <ProjectRef link={job.link} />}
+							</div>
 						</li>
 					))}
 				</ol>
@@ -344,6 +364,7 @@ export default function Home() {
 									<div>
 										<p className="text-[0.9375rem] text-paper">{e.school}</p>
 										<p className="mt-1 text-sm text-paper-dim">{e.detail}</p>
+										{e.link && <ProjectRef link={e.link} />}
 									</div>
 									<p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-paper-faint">
 										{e.period}

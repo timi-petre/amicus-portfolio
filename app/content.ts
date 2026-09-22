@@ -94,6 +94,10 @@ export const experience = [
 		points: [
 			"Built Noah's Story, an educational mobile game: 3D character implementation with Unity and Mixamo, released on the App Store and Google Play.",
 		],
+		link: {
+			label: "Noah's Story",
+			href: 'https://apps.apple.com/ro/app/noahs-story/id1555074864',
+		},
 	},
 ]
 
@@ -234,6 +238,10 @@ export const credentials = {
 			school: 'Universitatea Politehnica București, FILS',
 			detail: 'BSc, Computers and Information Technology',
 			period: '2015 - 2019',
+			link: {
+				label: 'AnimaLearn',
+				href: 'https://apps.apple.com/ro/app/animalearn/id6803595406',
+			},
 		},
 	],
 	languages: ['Romanian: native', 'English: upper-intermediate (B2)'],
