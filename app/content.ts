@@ -6,7 +6,7 @@ export const cv = {
 
 export const profile = {
 	name: 'Timotei Petre',
-	role: 'IT Support Engineer',
+	role: 'IT Support Technician',
 	discipline: 'Identity & Access Management',
 	location: 'Buzău, Romania',
 	relocation: 'Open to relocating to Bucharest',

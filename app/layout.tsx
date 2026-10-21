@@ -24,11 +24,11 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://timipetre.netlify.app'),
-	title: 'Timotei Petre · IT Support Engineer, Identity & Access',
+	title: 'Timotei Petre · IT Support Technician, Identity & Access',
 	description:
-		'IT Support Engineer working daily in Microsoft Entra ID and on-prem Active Directory: identity lifecycle, group-based licensing, MFA and passkeys, Conditional Access troubleshooting. Auth0 Specialist certified.',
+		'IT Support Technician working daily in Microsoft Entra ID and on-prem Active Directory: identity lifecycle, group-based licensing, MFA and passkeys, Conditional Access troubleshooting. Auth0 Specialist certified.',
 	openGraph: {
-		title: 'Timotei Petre · IT Support Engineer, Identity & Access',
+		title: 'Timotei Petre · IT Support Technician, Identity & Access',
 		description:
 			'Identity lifecycle, access troubleshooting and delegated administration in Entra ID, Active Directory and Auth0.',
 		type: 'website',
