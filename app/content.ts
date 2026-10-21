@@ -149,7 +149,6 @@ export const alsoBuilt = [
 		title: 'LongCovidWeb',
 		note: 'Angular developer, volunteer · 2023-2024',
 		body: 'Components and features for a symptom-tracking health platform, built alongside other developers.',
-		href: 'https://long-covid-spa-frontend.onrender.com',
 	},
 	{
 		title: 'AnimaLearn',
